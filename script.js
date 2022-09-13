@@ -17,3 +17,34 @@ function addNewButton() {
     allButtons[i].textContent = "New Button!";
   }
 }
+
+const modalButtons = document.querySelectorAll(".show-modal");
+
+const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".close-modal");
+const overlay = document.querySelector(".overlay");
+
+for (let i = 0; i < modalButtons.length; i++) {
+  modalButtons[i].addEventListener("click", openInteraction);
+}
+
+function openInteraction() {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+closeModal.addEventListener("click", closeInteraction);
+overlay.addEventListener("click", closeInteraction);
+
+function closeInteraction() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+document.addEventListener("keydown", escKeyboard);
+
+function escKeyboard(event) {
+  if (event["key"] === "Escape" && !modal.classList.contains("hidden")) {
+    closeInteraction();
+  }
+}
