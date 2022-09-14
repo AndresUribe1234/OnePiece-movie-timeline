@@ -102,7 +102,7 @@ hr {
 }
 
 /* modal */
-.modal {
+.movie {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -116,7 +116,7 @@ hr {
   z-index: 10;
 }
 
-.close-modal {
+.close-movie {
   position: absolute;
   top: 1.2rem;
   right: 2rem;
@@ -139,5 +139,14 @@ hr {
 }
 
 .hidden {
+  display: none;
+}
+
+.hidden-strong,
+.hidden-3d,
+.hidden-z,
+.hidden-gold,
+.hidden-stampede,
+.hidden-red {
   display: none;
 }
