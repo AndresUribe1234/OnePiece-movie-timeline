@@ -47,39 +47,61 @@ function addNewButton() {
 
 function openFilmStrongWorld() {
   const allMovies = document.querySelectorAll(".movie");
-  console.log(allMovies);
   for (let i = 0; i < allMovies.length; i++) {
     if (allMovies[i].classList.contains("hidden-strong")) {
-      movie.classList.remove("hidden-strong");
-      console.log("oso grizly");
+      allMovies[i].classList.remove("hidden-strong");
     }
   }
-  console.log(allMovies);
   overlay.classList.remove("hidden");
 }
 
 function open3D() {
-  movie.classList.remove("hidden-3d");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-3d")) {
+      allMovies[i].classList.remove("hidden-3d");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
 function openFilmZ() {
-  movie.classList.remove("hidden-z");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-z")) {
+      allMovies[i].classList.remove("hidden-z");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
 function openFilmGold() {
-  movie.classList.remove("hidden-gold");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-gold")) {
+      allMovies[i].classList.remove("hidden-gold");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
 function openStampede() {
-  movie.classList.remove("hidden-stampede");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-stampede")) {
+      allMovies[i].classList.remove("hidden-stampede");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
 function openRed() {
-  movie.classList.remove("hidden-red");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-red")) {
+      allMovies[i].classList.remove("hidden-red");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
@@ -97,7 +119,6 @@ overlay.addEventListener("click", closeInteraction);
 
 function closeInteraction() {
   const allMovies = document.querySelectorAll(".movie");
-  console.log(allMovies);
   const moviesClasses = [
     "hidden-strong",
     "hidden-3d",
@@ -106,6 +127,7 @@ function closeInteraction() {
     "hidden-stampede",
     "hidden-red",
   ];
+
   let classToPush;
   let arrayToCompare = [];
   for (let i = 0; i < allMovies.length; i++) {
@@ -129,15 +151,27 @@ function closeInteraction() {
       classToPush = moviesClasses[x];
     }
   }
+  let z = 0;
 
-  console.log(classToPush);
-  movie.classList.add(classToPush);
+  for (let i = 0; i < allMovies.length; i++) {
+    for (let y in moviesClasses) {
+      if (allMovies[i].classList.contains(moviesClasses[y]) === false) {
+        z = z + 1;
+      }
+    }
+    if (z === 6) {
+      allMovies[i].classList.add(classToPush);
+      break;
+    }
+    z = 0;
+  }
   overlay.classList.add("hidden");
 }
 
 document.addEventListener("keydown", escKeyboard);
 
 function escKeyboard(event) {
+  console.log(event);
   if (event["key"] === "Escape" && !modal.classList.contains("hidden")) {
     closeInteraction();
   }
