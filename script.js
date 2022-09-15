@@ -106,15 +106,20 @@ function openRed() {
 }
 
 function openUpcoming() {
-  movie.classList.remove("hidden");
+  const allMovies = document.querySelectorAll(".movie");
+  for (let i = 0; i < allMovies.length; i++) {
+    if (allMovies[i].classList.contains("hidden-upcoming")) {
+      allMovies[i].classList.remove("hidden-upcoming");
+    }
+  }
   overlay.classList.remove("hidden");
 }
 
 const movie = document.querySelector(".movie");
-const closeModal = document.querySelector(".close-movie");
+const closeMovie = document.querySelector(".close-movie");
 const overlay = document.querySelector(".overlay");
 
-closeModal.addEventListener("click", closeInteraction);
+closeMovie.addEventListener("click", closeInteraction);
 overlay.addEventListener("click", closeInteraction);
 
 function closeInteraction() {
@@ -126,6 +131,7 @@ function closeInteraction() {
     "hidden-gold",
     "hidden-stampede",
     "hidden-red",
+    "hidden-upcoming",
   ];
 
   let classToPush;
@@ -143,6 +149,8 @@ function closeInteraction() {
       arrayToCompare.push("hidden-stampede");
     } else if (allMovies[i].classList.contains("hidden-red")) {
       arrayToCompare.push("hidden-red");
+    } else if (allMovies[i].classList.contains("hidden-upcoming")) {
+      arrayToCompare.push("hidden-upcoming");
     }
   }
 
@@ -155,11 +163,11 @@ function closeInteraction() {
 
   for (let i = 0; i < allMovies.length; i++) {
     for (let y in moviesClasses) {
-      if (allMovies[i].classList.contains(moviesClasses[y]) === false) {
-        z = z + 1;
+      if (allMovies[i].classList.contains(moviesClasses[y])) {
+        z = 1;
       }
     }
-    if (z === 6) {
+    if (z === 0) {
       allMovies[i].classList.add(classToPush);
       break;
     }
@@ -172,7 +180,38 @@ document.addEventListener("keydown", escKeyboard);
 
 function escKeyboard(event) {
   console.log(event);
-  if (event["key"] === "Escape" && !modal.classList.contains("hidden")) {
+  if (event["key"] === "Escape") {
     closeInteraction();
+  }
+}
+
+let allCloseMovieButtons = document.querySelectorAll(".close-movie");
+for (let i = 0; i < allCloseMovieButtons.length; i++) {
+  allCloseMovieButtons[i].addEventListener("click", closeMovieWithButton);
+}
+function closeMovieWithButton(event) {
+  let path = event["path"];
+
+  if (path[1].classList.contains("3d")) {
+    path[1].classList.add("hidden-3d");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("z")) {
+    path[1].classList.add("hidden-z");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("gold")) {
+    path[1].classList.add("hidden-gold");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("stampede")) {
+    path[1].classList.add("hidden-stampede");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("red")) {
+    path[1].classList.add("hidden-red");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("upcoming")) {
+    path[1].classList.add("hidden-upcoming");
+    overlay.classList.add("hidden");
+  } else if (path[1].classList.contains("strong")) {
+    path[1].classList.add("hidden-strong");
+    overlay.classList.add("hidden");
   }
 }

@@ -147,6 +147,7 @@ hr {
 .hidden-z,
 .hidden-gold,
 .hidden-stampede,
-.hidden-red {
+.hidden-red,
+.hidden-upcoming {
   display: none;
 }
