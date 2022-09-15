@@ -17,6 +17,7 @@ html {
 
 body {
   font-size: var(--size-font-global);
+  background-color: #66cdef;
 }
 
 button {
@@ -29,6 +30,7 @@ button {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 3rem;
   font-size: var(--size-font-global);
   width: 100vw;
@@ -39,7 +41,7 @@ button {
   cursor: pointer;
   border-radius: 5%;
   border: transparent;
-  background-color: rgb(255, 251, 6);
+  background-color: #fee118;
 }
 
 .header button:hover {
@@ -50,7 +52,8 @@ button {
 
 /* section button */
 hr {
-  border-top: 0.5rem solid #bbb;
+  border-top: 0.5rem solid black;
+  border-bottom-color: transparent;
 }
 
 .main-section {
@@ -71,7 +74,7 @@ hr {
 }
 
 .new-button {
-  background-color: rgb(164, 255, 255);
+  background-color: #fee118;
   margin: 2rem;
   border-radius: 5%;
   cursor: pointer;
@@ -171,4 +174,25 @@ hr {
 
 .movie span {
   margin-bottom: 4rem;
+}
+
+.logo {
+  width: 10vw;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 4rem;
+}
+
+.main-section h1 {
+  display: flex;
+  background-color: white;
+  height: 10.8rem;
+  border-radius: 4rem;
+  justify-content: center;
+  align-items: center;
 }
