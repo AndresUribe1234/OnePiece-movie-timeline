@@ -103,6 +103,10 @@ hr {
 
 /* modal */
 .movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -150,4 +154,21 @@ hr {
 .hidden-red,
 .hidden-upcoming {
   display: none;
+}
+
+.movie-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.movie-info-container p {
+  padding-left: 3rem;
+}
+
+.movie-info-container img {
+  width: 30rem;
+}
+
+.movie span {
+  margin-bottom: 4rem;
 }
